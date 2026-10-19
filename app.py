@@ -73,12 +73,12 @@ def ensure_csv_header():
             csv.DictWriter(f, fieldnames=FIELDNAMES).writeheader()
 
 
-@app.get("/")
+@app.route("/", methods=["GET"])
 def index():
     return send_from_directory(BASE_DIR, "form.html")
 
 
-@app.post("/submit")
+@app.route("/submit", methods=["POST"])
 def submit():
     form = request.form
     errors = []
@@ -91,7 +91,7 @@ def submit():
     for key in SATISFACTION_KEYS:
         val = form.get(key, "")
         if val not in ("1", "2", "3", "4", "5"):
-            errors.append(f"missing/invalid {key}")
+            errors.append("missing/invalid {}".format(key))
         satisfaction[key] = val
 
     calibration = form.get("calibration", "")
@@ -127,14 +127,14 @@ def submit():
     return send_from_directory(BASE_DIR, "thanks.html")
 
 
-@app.get("/export")
+@app.route("/export", methods=["GET"])
 @require_admin
 def export():
     ensure_csv_header()
     return send_from_directory(BASE_DIR, os.path.basename(CSV_PATH), as_attachment=True)
 
 
-@app.get("/healthz")
+@app.route("/healthz", methods=["GET"])
 def healthz():
     return {"status": "ok"}
 
