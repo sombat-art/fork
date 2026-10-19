@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แบบประเมินผลหลังการใช้งาน — ส้อมวัดความเค็ม</title>
+<style>
+  :root {
+    --ink: #1c2b24;
+    --muted: #5c6b64;
+    --accent: #1f7a5c;
+    --accent-dark: #145840;
+    --bg: #f4f7f5;
+    --card: #ffffff;
+    --border: #dde5e0;
+    --error-bg: #fdecea;
+    --error-ink: #7a2018;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans Thai", "Sarabun", system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+  }
+  .page { max-width: 640px; margin: 0 auto; padding: 20px 16px 60px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 20px; }
+  h1 { font-size: 1.3rem; margin: 0 0 8px; color: var(--accent-dark); }
+  .lead { color: var(--muted); margin: 0 0 20px; }
+  fieldset { border: none; border-top: 1px solid var(--border); padding: 16px 0; margin: 0; }
+  fieldset:first-of-type { border-top: none; }
+  legend { font-weight: 600; padding: 0 0 10px; width: 100%; }
+  label.radio, label.checkbox {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 8px 10px; border: 1px solid var(--border); border-radius: 10px;
+    margin-bottom: 8px; cursor: pointer; background: #fafcfb;
+  }
+  label.radio input { margin-top: 3px; }
+  input[type="text"], input[type="number"], textarea {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--border);
+    border-radius: 10px; font-size: 1rem; font-family: inherit;
+    margin-top: 6px; margin-bottom: 10px; background: #fff; color: var(--ink);
+  }
+  textarea { resize: vertical; }
+  .scale-table { display: flex; flex-direction: column; gap: 14px; }
+  .scale-row { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: #fafcfb; }
+  .scale-label { font-size: 0.92rem; margin-bottom: 8px; }
+  .scale-options { display: flex; justify-content: space-between; gap: 6px; }
+  .scale-opt {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    padding: 8px 0; border: 1px solid var(--border); border-radius: 8px;
+    background: #fff; margin: 0; cursor: pointer; font-size: 0.85rem;
+  }
+  .scale-opt input { margin: 0 0 4px; }
+  .button {
+    display: block; width: 100%; text-align: center; background: var(--accent);
+    color: #fff; border: none; border-radius: 12px; padding: 14px; font-size: 1rem;
+    font-weight: 600; cursor: pointer; margin-top: 16px;
+  }
+  .button:hover { background: var(--accent-dark); }
+  .note { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="card">
+    <h1>แบบฟอร์มสำหรับประเมินความพึงพอใจหลังการใช้งาน</h1>
+    <p class="lead">ส้อมวัดความเค็มในอาหาร (ฉบับที่ 2.0 วันที่ 19 กุมภาพันธ์ พ.ศ. 2569)</p>
+
+    <form method="post" action="/submit">
+      <fieldset>
+        <legend>ท่านมีการใช้งานส้อมวัดความเค็มนี้ด้วยความถี่ของการใช้งานในระดับใด?</legend>
+        <label class="radio"><input type="radio" name="usage_frequency" value="ไม่ใช้เลย" required> ไม่ใช้เลย</label>
+        <label class="radio"><input type="radio" name="usage_frequency" value="นานๆครั้ง"> นานๆครั้ง</label>
+        <label class="radio"><input type="radio" name="usage_frequency" value="บ่อยแต่ไม่ทุกวัน"> บ่อยแต่ไม่ทุกวัน</label>
+        <label class="radio"><input type="radio" name="usage_frequency" value="ทุกวัน แต่ไม่ทุกมื้อ"> ทุกวัน แต่ไม่ทุกมื้อ</label>
+        <label class="radio"><input type="radio" name="usage_frequency" value="ทุกวัน และทุกมื้อ"> ทุกวัน และทุกมื้อ</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>กรุณาประเมินระดับความพึงพอใจของท่านในแต่ละหัวข้อ (1 = น้อยที่สุด, 5 = มากที่สุด)</legend>
+        <div class="scale-table">
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ รูปร่าง และลักษณะของอุปกรณ์</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_shape" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_shape" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_shape" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_shape" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_shape" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ ความสะดวกในการถือจับ ขณะใช้งาน</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_grip" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_grip" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_grip" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_grip" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_grip" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ น้ำหนักของตัวอุปกรณ์</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_weight" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_weight" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_weight" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_weight" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_weight" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ การใช้งานปุ่มกดบนตัวอุปกรณ์</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_button" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_button" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_button" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_button" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_button" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ การแสดงผลความเค็มเป็นระดับ ด้วยสีของหลอดไฟ (แทนการบอกเป็นตัวเลข)</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_light_display" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_light_display" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_light_display" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_light_display" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_light_display" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ ความสว่างของหลอดไฟแสดงผล (ความง่ายในการสังเกตผลการวัด)</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_light_brightness" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_light_brightness" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_light_brightness" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_light_brightness" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_light_brightness" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ ความรวดเร็วในการแสดงผล</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_speed" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_speed" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_speed" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_speed" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_speed" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ ความถูกต้องของผลการวัด (เทียบกับความเค็มที่สัมผัสได้จริง ขณะรับประทาน)</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_accuracy" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_accuracy" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_accuracy" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_accuracy" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_accuracy" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ ความง่ายในการล้างทำความสะอาดหัวส้อมหลังการใช้งาน</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_cleaning" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_cleaning" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_cleaning" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_cleaning" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_cleaning" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ ความทนทานของสารเคลือบบนหัวส้อม</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_coating_durability" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_coating_durability" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_coating_durability" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_coating_durability" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_coating_durability" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ อายุการใช้งานของแบตเตอรี่</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_battery_life" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_battery_life" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_battery_life" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_battery_life" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_battery_life" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ ความง่ายในการเก็บรักษา</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_storage" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_storage" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_storage" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_storage" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_storage" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ ความสะดวกในการพกพา</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_portability" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_portability" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_portability" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_portability" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_portability" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่าน หากต้องบริโภคอาหารที่ถูกจุ่มวัด</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_dipped_food" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_dipped_food" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_dipped_food" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_dipped_food" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_dipped_food" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">ความพึงพอใจของท่านต่อ ประโยชน์ด้านสุขภาพที่ได้รับจากการใช้งาน</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_health_benefit" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_health_benefit" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_health_benefit" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_health_benefit" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_health_benefit" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="scale-row">
+            <div class="scale-label">โอกาสที่ท่านจะเปลี่ยนไปใช้อุปกรณ์สำหรับวัดความเค็มตัวอื่นแทน (1 คือ ไม่เปลี่ยนแน่นอน และ 5 คือ เปลี่ยนแน่นอน)</div>
+            <div class="scale-options">
+              <label class="scale-opt"><input type="radio" name="sat_switch_likelihood" value="1" required><span>1</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_switch_likelihood" value="2"><span>2</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_switch_likelihood" value="3"><span>3</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_switch_likelihood" value="4"><span>4</span></label>
+              <label class="scale-opt"><input type="radio" name="sat_switch_likelihood" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>ท่านได้ทราบถึงวิธีการสอบเทียบ (calibrate) เพื่อปรับตั้งความแม่นยำของส้อมวัดความเค็มนี้ หรือไม่?</legend>
+        <label class="radio">
+          <input type="radio" name="calibration" value="ไม่ทราบเลย" required
+                 onclick="document.getElementById('calib_times').style.display='none'">
+          ไม่ทราบเลย
+        </label>
+        <label class="radio">
+          <input type="radio" name="calibration" value="ทราบ แต่ไม่เคยทำ"
+                 onclick="document.getElementById('calib_times').style.display='none'">
+          ทราบ แต่ไม่เคยทำ
+        </label>
+        <label class="radio">
+          <input type="radio" name="calibration" value="ทราบ และเคยทำแล้ว"
+                 onclick="document.getElementById('calib_times').style.display='block'">
+          ทราบ และเคยทำแล้ว
+        </label>
+        <input type="number" min="0" id="calib_times" name="calibration_times" placeholder="จำนวนครั้ง" style="display:none;">
+      </fieldset>
+
+      <fieldset>
+        <legend>ท่านเห็นด้วยหรือไม่ หากส้อมวัดความเค็มนี้ถูกนำไปวางจำหน่ายในราคา 700-800 บาทต่อตัว?</legend>
+        <label class="radio"><input type="radio" name="price_agreement" value="เห็นด้วย" required> เห็นด้วย</label>
+        <label class="radio"><input type="radio" name="price_agreement" value="ไม่เห็นด้วย"> ไม่เห็นด้วย</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>ข้อเสนอแนะอื่นๆ</legend>
+        <textarea name="suggestions" rows="4"></textarea>
+        <div class="note">ไม่บังคับกรอก</div>
+      </fieldset>
+
+      <button type="submit" class="button">ส่งแบบประเมิน</button>
+    </form>
+  </div>
+</main>
+</body>
+</html>
