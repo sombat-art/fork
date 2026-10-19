@@ -141,4 +141,4 @@ def healthz():
 
 if __name__ == "__main__":
     ensure_csv_header()
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 80)), debug=False)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8000)), debug=False)
